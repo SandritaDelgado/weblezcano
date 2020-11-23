@@ -37,18 +37,19 @@
     <main class="contenedor seccion contenido-centrado">
         <h2 class="fw-300 centrar-texto">Rellena el formulario de Contacto</h2>
         <form id="contact-form" class="contact" name="contact-form" action="contact.php" method="post">
-            <div class="form-group">
-                <input type="text" name="nombre" class="form-control name-field" required="required" placeholder="Tu nombre">
-            </div>
-            <div class="form-group">
-                <input type="email" name="email" class="form-control name-field" required="required" placeholder="Tu correo electronico">
-            </div>
-            <div class="form-group">
-                <textarea name="mensaje" id="mensaje" required="required" class="form-control" rows="8" placeholder="Mensaje"></textarea>
-            </div>
-            <div class="form-group">
-                <button type="submit" class="btn btn-primary">Enviar</button>
-            </div>
+            <label>Nombre y apellido: <span>*</span>
+                <input type="text" name="nombre" placeholder="Nombre y apellido" class="campo-form" required>
+            </label>
+            
+            <label>Email: <span>*</span>
+                <input type="email" name="email" placeholder="Email" class="campo-form" required>
+            </label>
+            
+            <label>Consulta:
+                <textarea name="consulta" class="campo-form"></textarea>
+            </label>
+    
+            <input type="submit" value="Enviar" class="btn-form">
     </main>
     <footer class="site-footer seccion">
         <div class="nuevo-contenedor contenedor-footer">

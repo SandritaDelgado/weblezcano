@@ -534,4 +534,20 @@ textarea {min-height: 150px!important;}
 .btn-form {display: inline-block; border:0; background: #000; height: 46px; line-height: 46px; padding: 0 20px; border-radius: 6px; color:#fff; text-decoration: none; text-transform: uppercase; letter-spacing: 1px}
 .btn-form:hover {background: #444}
 
+.confirma a{
+    display: inline-block; 
+    border:0; 
+    background: #000; 
+    height: 46px; 
+    line-height: 46px; 
+    padding: 0 20px; 
+    border-radius: 6px; 
+    color:#fff; 
+    text-decoration: none; 
+    text-transform: uppercase; 
+    letter-spacing: 1px
 
+}
+.confirma a:hover{
+    cursor: pointer;
+}
