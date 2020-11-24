@@ -1,60 +1,26 @@
 <?php
-//a ver ahora, necesita 4 campos, lo del php es para darle formato, pero con una sola orden deberia
-//mandarte el correo. siii
-//vamos a ver si llegar aqui
-//mail('', 'Mensaje de mi sitio web','hollaaa','Holi San');
-//subelo
+$nombre = $_POST['nombre'];
+$mail = $_POST['email'];
+$empresa = $_POST['mensaje'];
 
-//$exito = mail("sandra_bonifa@hotmail.com","Recuperación de contraseña", "Actualmente podr");
-//echo "que tal";
+$header = 'From: ' . $mail . " \r\n";
+$header .= "X-Mailer: PHP/" . phpversion() . " \r\n";
+$header .= "Mime-Version: 1.0 \r\n";
+$header .= "Content-Type: text/plain";
 
-// Varios destinatarios
-//vamos a ver primero que se envie el mensaje
-$para = 'sandra_bonifa@hotmail.com';
+$mensaje = "Este mensaje fue enviado por " . $nombre . ",\r\n";
+$mensaje .= "Su e-mail es: " . $mail . " \r\n";
+$mensaje .= "Mensaje: " . $_POST['mensaje'] . " \r\n";
+$mensaje .= "Enviado el " . date('d/m/Y', time());
 
-// título
-$título = 'Recordatorio de cumpleaños para Agosto';
+$para = 'tallereslezcano@gmail.com';
+$asunto = 'Mensaje de mi sitio web';
 
-// mensaje
-$mensaje = '
-<html>
-<head>
-  <title>Recordatorio de cumpleaños para Agosto</title>
-</head>
-<body>
-  <p>¡Estos son los cumpleaños para Agosto!</p>
-  <table>
-    <tr>
-      <th>Quien</th><th>Día</th><th>Mes</th><th>Año</th>
-    </tr>
-    <tr>
-      <td>Joe</td><td>3</td><td>Agosto</td><td>1970</td>
-    </tr>
-    <tr>
-      <td>Sally</td><td>17</td><td>Agosto</td><td>1973</td>
-    </tr>
-  </table>
-</body>
-</html>
-';
-
-// Para enviar un correo HTML, debe establecerse la cabecera Content-type
-$cabeceras  = 'MIME-Version: 1.0' . "\r\n";
-$cabeceras .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-
-// Cabeceras adicionales
-$cabeceras .= 'To: Mary <mary@example.com>, Kelly <kelly@example.com>' . "\r\n";
-$cabeceras .= 'From: Recordatorio <cumples@example.com>' . "\r\n";
-$cabeceras .= 'Cc: birthdayarchive@example.com' . "\r\n";
-$cabeceras .= 'Bcc: birthdaycheck@example.com' . "\r\n";
-
-// Enviarlo
-$exito = mail($para, $título, $mensaje, $cabeceras);
-
+$exito = mail($para, $asunto, utf8_decode($mensaje), $header);
 if ($exito){
     header("Location:confirma.html");
 } else {
-    echo "no encuentro una mierda";
+    echo "no va";
 }
 
 ?>
